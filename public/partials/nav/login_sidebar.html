@@ -1,0 +1,6 @@
+<md-button class="md-icon-button" aria-label="Side Panel" ng-click="openSideNavPanel()">
+    <md-tooltip>Side Panel</md-tooltip>
+    <ng-md-icon icon="menu"></ng-md-icon>
+</md-button>
+
+<span><a ng-href="{{currentUser.role ? '/dashboard' : '/'}}" ng-click="$mdMenu.hide();">MOMs</a></span>

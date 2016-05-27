@@ -1,0 +1,157 @@
+<md-content class="md-padding" layout="column" >
+    <h2 class="md-title">Application</h2>
+
+    <form name="becomeStudent" ng-submit="saveStudentProfile()">
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>First name</label>
+                <input ng-model="profileStudent.first_name" type="text" />
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Last name</label>
+                <input ng-model="profileStudent.last_name" type="text" />
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Gender</label>
+                <md-select ng-model="profileStudent.gender" required>
+                    <md-option value="male">
+                        Male
+                    </md-option>
+                    <md-option value="female">
+                        Female
+                    </md-option>
+                    <md-option value="pet">
+                        Pet
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        
+        <div class='md-padding' layout="row" >
+            <div layout="row" >
+                <div class="parent" layout="row" ng-show="profileStudent.photos != ''">
+                    <md-card>
+                        <img ng-src="/uploads/{{profileStudent.photos}}" class="md-card-image" style="width:350px;"/>
+                        <div class="md-actions" layout="row" layout-align="center center">
+                            <md-button class="md-warn md-raised" ng-click="removeImage(profileStudent.photos)">Delete</md-button>
+                        </div>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+        
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <input type="file" name="files" ng-files="getTheFiles($files)" />
+            </md-input-container>
+        </div>
+
+        <md-datepicker ng-model="profileStudent.date_of_birth" md-placeholder="Enter date"></md-datepicker>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Phone number</label>
+                <input ng-model="profileStudent.phone_number" type="text" />
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>School/Place of employment</label>
+                <input ng-model="profileStudent.education_place" type="text" />
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Countries of interest</label>
+                <md-select ng-model="profileStudent.country_of_interest"  multiple>
+                    <md-option value="USA">
+                        USA
+                    </md-option>
+                    <md-option value="UK">
+                        UK
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Cities of interest</label>
+                <md-select ng-model="profileStudent.city_of_interest"  multiple>
+                    <md-option value="London">
+                        London
+                    </md-option>
+                    <md-option value="Manchester United">
+                        Manchester United
+                    </md-option>
+                    <md-option value="New York">
+                        New York
+                    </md-option>
+                    <md-option value="Chicago">
+                        Chicago
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Field of interest</label>
+                <md-select ng-model="profileStudent.field_of_interest"  multiple>
+                    <md-option value="EN">
+                        English
+                    </md-option>
+                    <md-option value="EP">
+                        Spanish
+                    </md-option>
+                    <md-option value="Doctor">
+                        Doctor
+                    </md-option>
+                    <md-option value="Engineer">
+                        Engineer
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <md-datepicker ng-model="profileStudent.check_in" md-placeholder="Check in date" md-min-date="maxDateCheckin"></md-datepicker>
+
+        <md-datepicker ng-model="profileStudent.check_out" md-placeholder="Check out date" md-min-date="minDateCheckout"></md-datepicker>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Languages</label>
+                <md-select ng-model="profileStudent.languages" required>
+                    <md-option value="EN">
+                        English
+                    </md-option>
+                    <md-option value="EP">
+                        Spanish
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>What are you looking up</label>
+                <textarea rows="200" cols="100" ng-model="profileStudent.look_up" ></textarea>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <md-button class="md-raised md-primary" type="submit">Save</md-button>
+            </md-input-container>
+        </div>
+
+    </form>
+
+</md-content>

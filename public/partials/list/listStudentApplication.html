@@ -1,0 +1,18 @@
+<md-content>
+    <md-list>
+        <md-list-item class="md-3-line" ng-if="applications.length == 0">
+            <div class="md-list-item-text">
+                <h3>No Application found.</h3>
+            </div>
+            <md-divider ></md-divider>
+        </md-list-item>
+        <md-list-item class="md-3-line" ng-repeat="application in applications">
+            <div class="md-list-item-text">
+                <p>{{application.host_id.first_name }} {{ application.host_id.last_name }}</p>
+                <h4>DOB : {{ application.host_id.date_of_birth | date }}</h4>
+                <h4>Email : {{ application.host_id.email }}</h4>
+            </div>
+            <md-divider ></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>

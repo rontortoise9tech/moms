@@ -1,0 +1,26 @@
+{
+  "name": "student-host",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ron"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-material": "^1.0.8",
+    "angular-route": "^1.5.5",
+    "angular-material-icons": "^0.7.0",
+    "angular-ui-router": "^0.2.18",
+    "ngstorage": "^0.3.10"
+  }
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MOMs</title>
+
+        <link rel="stylesheet" href="/lib/angular-material/angular-material.min.css"/>
+        <link rel="stylesheet" href="/lib/angular-material-icons/angular-material-icons.css"/>
+        <link rel="stylesheet" href="/css/dev.css"/>
+
+        <script type="text/javascript" src="/lib/angular/angular.js"></script>
+        <script type="text/javascript" src="/lib/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-animate/angular-animate.min.js"></script>
+
+        <script type="text/javascript" src="/lib/angular-aria/angular-aria.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-material-icons/angular-material-icons.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-messages/angular-messages.min.js"></script>
+        <script type="text/javascript" src="/lib/ngstorage/ngStorage.min.js"></script>
+
+        <script type="text/javascript" src="/lib/angular-material/angular-material.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        
+        
+        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/js/auth.js"></script>
+        <script type="text/javascript" src="/js/dashboard.js"></script>
+        <script type="text/javascript" src="/js/directives.js"></script>
+        <script type="text/javascript" src="/js/services.js"></script>
+        <script type="text/javascript" src="/js/profile.js"></script>
+        <script type="text/javascript" src="/js/chat.js"></script>
+        <base href="/">
+    </head>
+    <body ng-app="moms">
+    
+        
+    <div ng-include="'/partials/nav/student_nave.html'" ng-if='currentUser.role == "student"'></div>
+    <div ng-include="'/partials/nav/host_nave.html'" ng-if='currentUser.role == "host"'></div>
+    
+    <div layout="column" layout-fill>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+
+                <div ng-include="'/partials/nav/login_sidebar.html'" ng-if='currentUser._id'></div>
+                <div ng-include="'/partials/nav/no_login.html'" ng-if='!currentUser._id'></div>
+
+                <span flex></span>
+
+                <md-menu-bar ng-show="!currentUser">
+                    <md-menu>
+                        <button ng-click="$mdOpenMenu()">
+                            <ng-md-icon icon="login" ></ng-md-icon>
+                        </button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <md-button href="/login" ng-click="$mdMenu.hide();">Login</md-button>
+                            </md-menu-item>
+
+                            <md-menu-item>
+                                <md-menu>
+                                    <md-button ng-click="$mdOpenMenu()">Signup</md-button>
+                                    <md-menu-content width="3">
+                                        <md-menu-item>
+                                            <md-button href="/signup/student">as Student</md-button>
+                                        </md-menu-item>
+                                        <md-menu-item>
+                                            <md-button href="/signup/host">as Host</md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </md-menu-item>
+
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-bar>
+                <md-menu-bar ng-show="currentUser._id">
+                    {{currentUser.email}}
+                    <md-menu>
+                        <button ng-click="$mdOpenMenu()">
+                            <ng-md-icon icon="logout" ></ng-md-icon>
+                        </button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <md-button ng-href="{{currentUser.role == 'student' ? '/profileStudent' : '/profileHost'}}" ng-click="$mdMenu.hide();">Edit Profile</md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button href="/logout" ng-click="$mdMenu.hide();">Logout</md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-bar>
+            </div>
+        </md-toolbar>
+
+        <md-content flex layout-padding>
+            <div ng-view></div>
+        </md-content>
+    </div>
+
+</body>
+</html>

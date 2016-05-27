@@ -1,0 +1,137 @@
+.loginBox {
+    max-width:  90%;
+    width: 50%;
+}
+
+.stretch input  {
+    width: 100%
+}
+
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.success {
+    background-color: green;
+}
+
+md-toast.md-success-toast-theme {
+    background-color: green;
+}
+
+md-toast.md-error-toast-theme {
+    background-color: red;
+}
+
+md-datepicker {
+    margin-right: 0px;
+}
+
+.listHostClass {
+
+    -webkit-box-shadow: 0px 0px 19px -3px rgba(5,5,5,0.4);
+    -moz-box-shadow: 0px 0px 19px -3px rgba(5,5,5,0.4);
+    box-shadow: 0px 0px 19px -3px rgba(5,5,5,0.4);
+}
+
+md-card.md-default-theme {
+    border-radius: 2px;
+}
+md-card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-sizing: border-box;
+    display: block;
+    margin: 8px;
+    padding: 8px;
+}
+
+.parent {
+    overflow: hidden;
+}
+[flex] {
+    flex: 1 1 0;
+}
+[layout="column"] {
+    flex-direction: column;
+}
+[layout] {
+    box-sizing: border-box;
+    display: flex;
+}
+
+.card img {
+    height: auto;
+    width: 100%;
+}
+
+
+
+.bubble{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+    width: 70%;
+}
+
+.bubble::before {
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+    -moz-transform:    rotate( 29deg ) skew( -35deg );
+    -ms-transform:     rotate( 29deg ) skew( -35deg );
+    -o-transform:      rotate( 29deg ) skew( -35deg );
+    -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+
+.me {
+    float: left;   
+    margin: 5px 45px 5px 20px;         
+}
+
+.me::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;           
+}
+
+.you {
+    float: right;    
+    margin: 5px 20px 5px 45px;         
+}
+
+.you::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;    
+}
+
+.chatboxContainer
+{
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 8px 0;
+}
+
+/*#chatContainer
+{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+#chatContent
+{
+    height: 99%;
+    overflow: auto;
+    padding-right: 15px;
+    margin: 0 auto;
+    width: 70%;
+}*/

@@ -1,0 +1,37 @@
+<h2>&nbsp;</h2><br/><br/><br/>
+
+
+<md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3">
+    <md-grid-tile ng-if="hosts.length == 0">
+        No Hosts
+    </md-grid-tile>
+
+    <md-grid-tile ng-repeat="host in hosts track by $index">
+        
+        <md-content flex layout-padding class="listHostClass" >
+<!--            <p>First name : {{host.user_id.first_name}}</p>
+            <p>Last name : {{host.user_id.last_name}}</p>-->
+            <p>Number of members : {{ host.member.length }}</p>
+            <p>Country : {{host.country}}</p>
+            <p>City : {{host.city}}</p>
+            <p>Language : {{host.language}}</p>
+            
+            <div class='md-padding' layout="row" flex>
+                <div layout="row" flex>
+                    <div class="parent" layout="column" ng-repeat="photo in host.photos | limitTo:3 track by $index" flex>
+                        <md-card>
+                            <img ng-src="/uploads/{{photo}}" class="md-card-image"/>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+            
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-primary md-raised" ng-click="showHostDetails($event,host)">
+                    View
+                </md-button>
+            </section>
+        </md-content>
+        
+    </md-grid-tile>
+</md-grid-list>

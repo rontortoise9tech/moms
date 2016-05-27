@@ -1,0 +1,19 @@
+<md-content>
+    <md-list>
+        <md-list-item class="md-3-line" ng-if="applications.length == 0">
+            <div class="md-list-item-text">
+                <h3>No Application found.</h3>
+            </div>
+            <md-divider ></md-divider>
+        </md-list-item>
+        <md-list-item class="md-3-line" ng-repeat="application in applications">
+            <div class="md-list-item-text">
+                <p>{{application.student_id.first_name }} {{ application.student_id.last_name }}</p>
+                <h4>DOB : {{ application.student_id.date_of_birth | date }}</h4>
+                <h4>Email : {{ application.student_id.email }}</h4>
+            </div>
+            <md-button class="md-primary md-raised" ng-click="gotochat(application.student_id._id);">Message</md-button>
+            <md-divider ></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>

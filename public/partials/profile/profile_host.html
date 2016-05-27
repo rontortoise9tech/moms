@@ -1,0 +1,139 @@
+<md-content class="md-padding" layout="column">
+    <h2 class="md-title">Become a moms host.</h2>
+
+    <form name="becomeHost" ng-submit="saveHostProfile()" enctype="multipart/form-data">
+        <div layout-gt-sm="row" ng-repeat="item in profile.member track by $index">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Name</label>
+                <input ng-model="profile.member[$index].name" type="text" required/>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Age</label>
+                <input type="number" ng-model="profile.member[$index].age" required/>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Gender</label>
+                <md-select ng-model="profile.member[$index].gender" required>
+                    <md-option value="male">
+                        Male
+                    </md-option>
+                    <md-option value="female">
+                        Female
+                    </md-option>
+                    <md-option value="pet">
+                        Pet
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Field of work</label>
+                <input ng-model="profile.member[$index].fieldofwork" required/>
+            </md-input-container>            
+
+        </div>
+        <md-button class="md-raised" ng-click="increasepersonCount()">Add more</md-button>
+        
+        <div class='md-padding' layout="row" flex>
+            <div layout="row" flex>
+                <div class="parent" layout="column" ng-repeat="photo in photos track by $index" flex>
+                    <md-card>
+                        <img ng-src="/uploads/{{photo}}" class="md-card-image"/>
+                        <div class="md-actions" layout="row" layout-align="center center">
+                            <md-button class="md-warn md-raised" ng-click="removeImage(photo)">Delete</md-button>
+                        </div>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+        
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <input type="file" name="files" ng-files="getTheFiles($files)" multiple/>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>Describe experience offered</label>
+                <textarea rows="200" cols="100" ng-model="profile.experience_desc" required></textarea>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>Location</label>
+                <md-select ng-model="profile.country" required>
+                    <md-option value="USA">
+                        USA
+                    </md-option>
+                    <md-option value="UK">
+                        UK
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <label>City</label>
+                <md-select ng-model="profile.city" required>
+                    <md-option value="Texas">
+                        Texas
+                    </md-option>
+                    <md-option value="LA">
+                        Los Agenles
+                    </md-option>
+                    <md-option value="London">
+                        London
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>Languages</label>
+                <md-select ng-model="profile.language">
+                    <md-option value="EN">
+                        English
+                    </md-option>
+                    <md-option value="EP">
+                        Spanish
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <p>Amenities</p>
+            <md-input-container>
+                <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in amenities track by $index">
+                    <md-checkbox ng-model="profile.amenitiesArr[item]" ng-value="item" >
+                        {{ item | uppercase }}
+                    </md-checkbox>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>Description of facilities</label>
+                <textarea rows="200" cols="100" ng-model="profile.facility_desc"></textarea>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <label>Description of surroundings</label>
+                <textarea rows="200" cols="100" ng-model="profile.surrounding_desc"></textarea>
+            </md-input-container>
+        </div>
+        <br/>
+        <br/>
+        <div layout-gt-sm="row">
+            <md-input-container>
+                <md-button class="md-raised md-primary" type="submit">Save</md-button>
+            </md-input-container>
+        </div>
+    </form>
+</md-content>

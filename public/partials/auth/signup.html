@@ -1,0 +1,40 @@
+<div  layout="column" layout-align="center center" layout-fill="layout-fill">
+    <div layout="column" class="loginBox md-whiteframe-z1">
+        <md-toolbar>
+            <h2 class="md-toolbar-tools"><span>Signup</span></h2>
+        </md-toolbar>
+        <form name="signupDataForm"  ng-submit="signup();">
+            <md-content layout="column" class="md-padding">
+                <md-input-container>
+                    <label>First name</label>
+                    <input type="text" ng-model="signupData.first_name" required/>
+                </md-input-container>
+                
+                <md-input-container>
+                    <label>Last name</label>
+                    <input type="text" ng-model="signupData.last_name" required/>
+                </md-input-container>
+                
+                <md-input-container>
+                    <label>Email address</label>
+                    <input type="text" ng-model="signupData.email" required/>
+                </md-input-container>
+                
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" ng-model="signupData.password" required/>
+                </md-input-container>
+                
+                <md-datepicker ng-model="signupData.date_of_birth" md-placeholder="Enter date"></md-datepicker>
+                
+                <input type="hidden" ng-model="signupData.role" />
+                
+                <div layout="row" layout-align="center center" style="padding-top:20px;">
+                    <md-button class="md-raised md-primary" type='submit'>Signup</md-button>
+                    <div flex="flex"></div>
+                </div>
+
+            </md-content>
+        </form>
+    </div>
+</div>

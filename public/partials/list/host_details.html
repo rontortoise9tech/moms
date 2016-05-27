@@ -1,0 +1,55 @@
+<md-dialog aria-label="Host Details" ng-cloak flex="70">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Host Detail</h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            
+            <h3>Members</h3>
+            
+            <md-list>
+                <md-list-item ng-repeat="member in hostsDetails.member track by $index">
+                    <p><strong>Name :</strong> {{ member.name }}</p>
+                    <p><strong>Age :</strong> {{ member.age }}</p>
+                    <p><strong>Gender :</strong> {{ member.gender }}</p>
+                    <p><strong>Field of work :</strong> {{ member.fieldofwork }}</p>
+                </md-list-item>
+
+            </md-list>
+
+            <p><strong>First name :</strong> {{hostsDetails.user_id.first_name}}</p>
+            <p><strong>Last name :</strong> {{hostsDetails.user_id.last_name}}</p>
+            <p><strong>Country :</strong> {{hostsDetails.country}}</p>
+            <p><strong>City :</strong> {{hostsDetails.city}}</p>
+            <p><strong>Language :</strong> {{hostsDetails.language}}</p>
+            <p><strong>Amenities :</strong> {{hostsDetails.amenities}}</p>
+            <p><strong>Experience :</strong> {{hostsDetails.experience_desc}}</p>
+            <p><strong>Facility description :</strong> {{hostsDetails.facility_desc}}</p>
+            
+            
+            <div class='md-padding' layout="row" flex>
+                <div layout="row" flex>
+                    <div class="parent" layout="column" ng-repeat="photo in hostsDetails.photos | limitTo:3 track by $index" flex>
+                        <md-card>
+                            <img ng-src="/uploads/{{photo}}" class="md-card-image"/>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-primary md-raised" ng-click="applyToHost(hostsDetails.user_id._id)" style="margin-right:20px;">
+            Apply
+        </md-button>
+        <md-button ng-click="close()" style="margin-right:20px;">
+            Close
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
+

@@ -1,0 +1,79 @@
+<md-grid-list md-cols="2" md-gutter="1em" md-row-height="4:3">
+
+    <md-grid-tile>
+        
+        <md-content style="width: 100%;" ng-if="currentUser.role == 'student'">
+            
+            <h3>Host Detail</h3>
+            
+            <md-list>
+                <md-list-item ng-repeat="member in profile.member track by $index">
+                    <p><strong>Name :</strong> {{ member.name }}</p>
+                    <p><strong>Age :</strong> {{ member.age }}</p>
+                    <p><strong>Gender :</strong> {{ member.gender }}</p>
+                    <p><strong>Field of work :</strong> {{ member.fieldofwork }}</p>
+                </md-list-item>
+
+            </md-list>
+
+            <p><strong>Country :</strong> {{profile.country}}</p>
+            <p><strong>City :</strong> {{profile.city}}</p>
+            <p><strong>Language :</strong> {{profile.language}}</p>
+            <p><strong>Amenities :</strong> {{profile.amenities}}</p>
+            <p><strong>Experience :</strong> {{profile.experience_desc}}</p>
+            <p><strong>Facility description :</strong> {{profile.facility_desc}}</p>
+            
+        </md-content>
+        <md-content style="width: 100%;" ng-if="currentUser.role == 'host'">
+            
+            <h3>Student Detail</h3>
+            
+            <p><strong>First name :</strong> {{profile.first_name}}</p>
+            <p><strong>Last name :</strong> {{profile.last_name}}</p>
+            <p><strong>Gender :</strong> {{profile.gender}}</p>
+            <p><strong>Phone number :</strong> {{profile.phone_number}}</p>
+            <p><strong>Country of interest :</strong> {{profile.country_of_interest | join:", "}}</p>
+            <p><strong>City of interest :</strong> {{profile.city_of_interest | join:", "}}</p>
+            
+        </md-content>
+        
+    </md-grid-tile>
+
+    <md-grid-tile>
+
+        <md-content style="width: 100%;">
+
+            <md-list>
+                <md-subheader class="md-no-sticky">Conversation</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in msgs track by $index" style="min-height: 50px;margin: 15px 0px;">
+
+                    <!--            <div class="md-list-item-text" layout="column">-->
+                    <div class="bubble fade" ng-class="currentUser._id == item.from ? 'me' : 'you'">
+                        <p>{{ item.msg}}</p>
+                        <small>{{ item.created_at | date:'medium' }}</small>
+                    </div>
+
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+
+            <form ng-submit="sendMsg()">
+
+                <div layout-gt-xs="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <textarea ng-model="chat.msg" placeholder="Type message"></textarea>
+                    </md-input-container>
+
+                    <md-button class="md-fab md-primary" aria-label="Send Message" type="submit">
+                        <ng-md-icon icon="message"></ng-md-icon>
+                    </md-button>
+                </div>
+
+            </form>
+        </md-content>
+
+    </md-grid-tile>
+</md-grid-list>
+
+
+

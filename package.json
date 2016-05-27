@@ -1,0 +1,26 @@
+{
+  "name": "moms",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^0.8.6",
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.0.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
+    "ejs": "^0.8.8",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "localStorage": "^1.0.3",
+    "method-override": "~1.0.0",
+    "mongoose": "~3.8.1",
+    "morgan": "~1.0.0",
+    "multer": "^1.1.0",
+    "nodemailer": "^0.7.1",
+    "passport": "~0.1.17",
+    "passport-facebook": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "passport-local": "~0.1.6",
+    "passport-twitter": "~1.0.2",
+    "socket.io": "^1.4.6"
+  }
+}
