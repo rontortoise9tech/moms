@@ -75,7 +75,7 @@ app.all('*', function (req, res, next)
 });
 
 require('./app/routes.js')(app, passport);
-require("./app/routers/profile")(app);
+require("./app/routers/profile")(app,config);
 require("./app/routers/applications")(app);
 require("./app/routers/chat")(app);
 

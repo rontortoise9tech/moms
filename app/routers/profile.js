@@ -6,6 +6,8 @@ var fs = require('fs');
 
 var filesArray = [];
 
+var s3 = require('s3');
+ 
 var storage =   multer.diskStorage(
 {
     destination: function (req, file, callback)
@@ -38,8 +40,42 @@ var storageStudent =   multer.diskStorage(
 
 var uploadStudent = multer({ storage : storageStudent }).array('files[]',100);
 
-module.exports = function (app)
+module.exports = function (app,config)
 {
+
+//    var client = s3.createClient({
+//        s3Options: {
+//            accessKeyId: config.accessKeyId,
+//            secretAccessKey: config.secretAccessKey
+//        }
+//    });
+//
+//    var params = {
+//        localFile: path.join(__dirname,'../../public/uploads/photos-student-1464349335334.jpg'),
+//        s3Params: {
+//            Bucket: config.bucketName,
+//            Key: path.join(__dirname,'../../public/uploads/photos-student-1464349335334.jpg'),
+//        },
+//    };
+//
+//    var uploader = client.uploadFile(params);
+//
+//    uploader.on('error', function (err)
+//    {
+//        console.error("unable to upload:", err);
+//    });
+//
+//    uploader.on('progress', function ()
+//    {
+//        console.log("progress", uploader.progressMd5Amount, uploader.progressAmount, uploader.progressTotal);
+//    });
+//
+//    uploader.on('end', function (res)
+//    {
+//        console.log(res);
+//        console.log("done uploading");
+//    });
+    
     app.post("/deleteImage", function(req, res, next)
     {
         var filePath = path.join(__dirname,'../../public/uploads/'+req.body.image);

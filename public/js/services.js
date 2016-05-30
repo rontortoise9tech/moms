@@ -2,14 +2,16 @@ var app = angular.module('moms.services', []);
 
 app.constant("CONFIG",{
 //    SITE_URL : "http://localhost:9090"
-    SITE_URL : "https://momsdemo.herokuapp.com"
+//    SITE_URL : "https://momsdemo.herokuapp.com"
+    SITE_URL : "http://moms.cleverapps.io"
 
 });
 
 app.factory('socket', function($rootScope)
 {
 //    var socket = io.connect("http://localhost:9090");
-    var socket = io.connect("https://momsdemo.herokuapp.com");
+//    var socket = io.connect("https://momsdemo.herokuapp.com");
+    var socket = io.connect("http://moms.cleverapps.io");
     return {
         on: function (eventName, callback)
         {
