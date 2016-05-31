@@ -19,9 +19,9 @@ var UserSchema = new Schema({
         type: String,
         required: true
     },
-    date_of_birth : {
-        type : Date
-    },
+//    date_of_birth : {
+//        type : Date
+//    },
     role : {
         type : String
     },

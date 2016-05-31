@@ -1,6 +1,6 @@
 var app = angular.module('moms.chat', []);
 
-app.controller('chatController', function($scope, socket, $routeParams, $location, loadingService, apiService)
+app.controller('chatController', function($scope, socket, $routeParams, $location, loadingService, apiService, $timeout)
 {
     var receiverID = $routeParams.receiverID;
 
@@ -22,6 +22,11 @@ app.controller('chatController', function($scope, socket, $routeParams, $locatio
         if(response.status == "ok" && response.data)
         {
             $scope.msgs = response.data;
+            $timeout(function()
+            {
+                var objDiv = document.getElementById("chatScrolling");
+                objDiv.scrollTop = objDiv.scrollHeight;
+            },500);
         }
     });
     
@@ -62,6 +67,9 @@ app.controller('chatController', function($scope, socket, $routeParams, $locatio
             data : chatParmas
         }).then(function(response)
         {
+            var objDiv = document.getElementById("chatScrolling");
+            objDiv.scrollTop = objDiv.scrollHeight;
+
             if(response.status == "ok")
                socket.emit('send msg', chatParmas);
             else
@@ -80,5 +88,11 @@ app.controller('chatController', function($scope, socket, $routeParams, $locatio
     socket.on('get msg', function(data)
     {
         $scope.msgs.push(data);
+        
+        $timeout(function()
+        {
+            var objDiv = document.getElementById("chatScrolling");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        },500);
     });
 });

@@ -135,3 +135,17 @@ md-card {
     margin: 0 auto;
     width: 70%;
 }*/
+
+#chatContainer{
+    height: 100% !important;
+    width: 100% !important;
+    border: 1px solid green;
+    overflow: hidden !important;
+}
+
+#chatContainerchatList{
+    width: 100% !important;
+    height: 99% !important;
+    overflow: auto !important;
+    padding-right: 15px !important;
+}

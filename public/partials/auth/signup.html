@@ -17,20 +17,25 @@
                 
                 <md-input-container>
                     <label>Email address</label>
-                    <input type="text" ng-model="signupData.email" required/>
+                    <input type="email" ng-model="signupData.email" required/>
                 </md-input-container>
                 
                 <md-input-container>
                     <label>Password</label>
-                    <input type="password" ng-model="signupData.password" required/>
+                    <input type="password" ng-model="signupData.password" id="password" name="password" required/>
                 </md-input-container>
                 
-                <md-datepicker ng-model="signupData.date_of_birth" md-placeholder="Enter date"></md-datepicker>
+                <md-input-container>
+                    <label>Confirm Password</label>
+                    <input type="password" ng-model="signupData.confirm_password" password-verify="signupData.password" required/>
+                </md-input-container>
+                
+                <!--<md-datepicker ng-model="signupData.date_of_birth" md-placeholder="Enter date"></md-datepicker>-->
                 
                 <input type="hidden" ng-model="signupData.role" />
                 
                 <div layout="row" layout-align="center center" style="padding-top:20px;">
-                    <md-button class="md-raised md-primary" type='submit'>Signup</md-button>
+                    <md-button class="md-raised md-primary" type='submit' ng-disabled="signupDataForm.$invalid">Signup</md-button>
                     <div flex="flex"></div>
                 </div>
 

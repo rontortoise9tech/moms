@@ -1,17 +1,27 @@
 var app = angular.module('moms.services', []);
 
-app.constant("CONFIG",{
+//app.constant("CONFIG",{
 //    SITE_URL : "http://localhost:9090"
-//    SITE_URL : "https://momsdemo.herokuapp.com"
-    SITE_URL : "http://moms.cleverapps.io"
+////    SITE_URL : "https://momsdemo.herokuapp.com"
+////    SITE_URL : "http://moms.cleverapps.io"
+//
+//});
 
-});
-
-app.factory('socket', function($rootScope)
+app.factory('CONFIG', ['$location', function ($location)
 {
-//    var socket = io.connect("http://localhost:9090");
+    var service = {
+        SITE_URL: $location.protocol() + "://" + location.host,
+    };
+
+    return service;
+}])
+
+app.factory('socket', function($rootScope, CONFIG)
+{
+    var socket = io.connect(CONFIG.SITE_URL);
 //    var socket = io.connect("https://momsdemo.herokuapp.com");
-    var socket = io.connect("http://moms.cleverapps.io");
+//    var socket = io.connect("http://moms.cleverapps.io");
+
     return {
         on: function (eventName, callback)
         {
